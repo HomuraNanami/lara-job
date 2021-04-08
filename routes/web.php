@@ -1,5 +1,11 @@
 <?php
 
+Route::get('/', 'Front\TopPageController@show');
+Route::resource('jobs', 'Front\JobsController', ['only' => ['index', 'show']])->names([
+    'index' => 'jobs.index',
+    'show' => 'jobs.show',
+]);
+
 // ユーザー
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
@@ -7,11 +13,11 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Auth::routes([
         'register' => true,
         'reset'    => false,
-        'verify'   => true
+        'verify'   => false
     ]);
 
     // ログイン認証後
-    Route::group(['middleware' => ['auth:user', 'verified']], function () {
+    Route::group(['middleware' => ['auth:user']], function () {
 
         // TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);

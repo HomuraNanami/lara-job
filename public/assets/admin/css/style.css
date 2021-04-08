@@ -1,0 +1,64 @@
+[class*="sidebar-dark"] .user-panel {
+  color: rgba(255,255,255,0.8);
+}
+.user-panel .image .icon {
+  width: 33px;
+  height: 33px;
+  border-radius: 33px;
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid #495057;
+}
+.with-icon .icon {
+  margin-right: 1.5rem;
+}
+.with-icon .icon {
+  width: 33px;
+  height: 33px;
+  border-radius: 33px;
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid #495057;
+}
+.user-profile .profile-header {
+  text-align: center;
+  padding: 1rem;
+}
+.user-profile .profile-header .icon{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid #495057;
+}
+.user-profile .profile-header .name {
+  font-size: 1.5rem;
+}
+.job .job-header {
+  text-align: center;
+  padding: 1rem;
+}
+.job .job-header .icon{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid #495057;
+}
+.job .job-header .name {
+  font-size: 1.5rem;
+}
+.job .job-header .title {
+  font-size: 1.75rem;
+}
+.job-edit .icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid #495057;
+  margin-bottom: 1rem;
+}
