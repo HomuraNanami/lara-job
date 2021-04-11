@@ -46,8 +46,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             'show' => 'users.show',
         ]);
         Route::post('users/{user}/entries-change-status', 'UsersController@changeEntriesStatus')->name('users.change-entries-status');
-
-
+        
+        Route::prefix('jobs')->name('jobs.')->group(function () {
+            Route::resource('categories', 'CategoriesController');
+            Route::post('{job}/entries-change-status', 'JobsController@changeEntriesStatus')->name('change-entries-status');
+        });
+        Route::resource('jobs', 'JobsController');
     });
 
 });

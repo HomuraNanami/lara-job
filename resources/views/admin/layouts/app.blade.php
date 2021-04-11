@@ -95,19 +95,19 @@
 	            </a>
 	            <ul class="nav nav-treeview">
 	              <li class="nav-item">
-	                <a href="job-list.html" class="nav-link {{ request()->route()->named('admin.jobs.index') ? 'active' : '' }}">
+	                <a href="{{ route('admin.jobs.index') }}" class="nav-link {{ request()->route()->named('admin.jobs.index') ? 'active' : '' }}">
 	                  <i class="far fa-circle nav-icon"></i>
 	                  <p>求人一覧</p>
 	                </a>
 	              </li>
 	              <li class="nav-item">
-	                <a href="job-edit.html" class="nav-link {{ request()->route()->named('admin.jobs.create') ? 'active' : '' }}">
+	                <a href="{{ route('admin.jobs.create') }}" class="nav-link {{ request()->route()->named('admin.jobs.create') ? 'active' : '' }}">
 	                  <i class="far fa-circle nav-icon"></i>
 	                  <p>新規追加</p>
 	                </a>
 	              </li>
                 <li class="nav-item">
-                  <a href="category-list.html" class="nav-link {{ request()->route()->named('admin.jobs.categories.index') ? 'active' : '' }}">
+                  <a href="{{ route('admin.jobs.categories.index') }}" class="nav-link {{ request()->route()->named('admin.jobs.categories.index') ? 'active' : '' }}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>カテゴリ管理</p>
                   </a>

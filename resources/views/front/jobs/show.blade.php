@@ -22,7 +22,7 @@
 	          @endif
 	        </div>
 	        <div class="job-body">
-	          <p>{{ nl2br($job->content) }}</p>
+	          <p>{!! nl2br(e($job->content)) !!}</p>
 	          <div class="information">
 	            <h2>基本情報</h2>
 	            <table class="table table-bordered">

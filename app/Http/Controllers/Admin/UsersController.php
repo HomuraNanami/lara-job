@@ -29,7 +29,7 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $data['user'] = $user;
         
-        $entries = Entry::with('job')->where('user_id', $id)->orderBy('id', 'desc')->paginate(10);
+        $entries = $user->entries()->orderBy('id', 'desc')->paginate(10);
         $data['entries'] = $entries;
 
         return view('admin.users.show', $data);
@@ -43,16 +43,21 @@ class UsersController extends Controller
             $messageClass = "alert-danger";
         } else {
             if(0 <= $request->status && 2 >= $request->status ){
-                $targetEntries = Entry::where('user_id', $id)->whereIn('id', $request->entryIdList)->get();
-                if(count($targetEntries) > 0){
-                    foreach($targetEntries as $entry){
-                        $entry->status = $request->status;
-                        $entry->save();
+                if(isset($request->entryIdList) && count($request->entryIdList)){
+                    $targetEntries = Entry::where('user_id', $id)->whereIn('id', $request->entryIdList)->get();
+                    if(count($targetEntries) > 0){
+                        foreach($targetEntries as $entry){
+                            $entry->status = $request->status;
+                            $entry->save();
+                        }
+                        $targetNum = count($targetEntries);
+                        $message = "{$targetNum}件の応募のステータスを変更しました。";
+                    } else {
+                        $message = "対象の応募が見つかりません。";
+                        $messageClass = "alert-danger";
                     }
-                    $targetNum = count($targetEntries);
-                    $message = "{$targetNum}件の応募のステータスを変更しました。";
                 } else {
-                    $message = "対象の応募が見つかりません。";
+                    $message = "対象の応募が選択されていません。";
                     $messageClass = "alert-danger";
                 }
             } else {

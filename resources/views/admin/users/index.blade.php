@@ -76,8 +76,8 @@
 		          </table>
 	          </div>
 	        </div>
-	        @if ($users->hasMorePages())
 	        <!-- /.card-body -->
+	        @if ($users->hasMorePages())
 	        <div class="card-footer">
 	          {{ $users->links('admin.commons.pagination') }}
 	          </nav>

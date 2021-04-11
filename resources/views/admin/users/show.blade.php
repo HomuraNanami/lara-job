@@ -158,11 +158,11 @@
 	        </div>
 	        @endif
         @else
-		  <div class="card-body">
-      	<div class="alert alert-danger mb-3" role="alert">
-	        現在、応募した求人はいません。
-				</div>
-		  </div>
+				  <div class="card-body">
+		      	<div class="alert alert-danger mb-3" role="alert">
+			        現在、応募した求人はいません。
+						</div>
+				  </div>
         @endif
       </div>
       <!-- /.card -->
