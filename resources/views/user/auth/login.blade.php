@@ -28,17 +28,17 @@
 	              @enderror
 	            </div>
 	          </div>
-              <div class="form-group row">
-                <div class="col-md-9 offset-md-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            <div class="form-group row">
+              <div class="col-md-9 offset-md-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                    <label class="form-check-label" for="remember">
-                      ログイン情報を記憶する
-                    </label>
-                  </div>
+                  <label class="form-check-label" for="remember">
+                    ログイン情報を記憶する
+                  </label>
                 </div>
               </div>
+            </div>
 	          <div class="d-flex justify-content-center">
 	            <button type="submit" class="btn btn-primary">ログイン</button>
 	          </div>

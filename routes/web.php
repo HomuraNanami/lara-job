@@ -20,7 +20,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Route::group(['middleware' => ['auth:user']], function () {
 
         // TOPページ
-        Route::resource('home', 'HomeController', ['only' => 'index']);
+        Route::get('home', 'HomeController@show')->name('home');
 
     });
 });
@@ -39,7 +39,14 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth:admin')->group(function () {
 
         // TOPページ
-        Route::resource('home', 'HomeController', ['only' => 'index']);
+        Route::get('home', 'HomeController@show')->name('home');
+        
+        Route::resource('users', 'UsersController', ['only' => ['index', 'show']])->names([
+            'index' => 'users.index',
+            'show' => 'users.show',
+        ]);
+        Route::post('users/{user}/entries-change-status', 'UsersController@changeEntriesStatus')->name('users.change-entries-status');
+
 
     });
 
