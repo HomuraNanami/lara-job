@@ -29,11 +29,11 @@
 	          @endforeach
 
 					  {{ $entries->links('front.commons.pagination') }}
-					@else
-	      	<div class="alert alert-danger mb-3" role="alert">
+			@else
+	      	  <div class="alert alert-danger mb-3" role="alert">
 		        応募した求人はありません。
-			    </div>
-					@endif
+			  </div>
+			@endif
 
 	      </div>
 	    </section>

@@ -8117,6 +8117,12 @@ footer {
 form .form-group .custom-file label {
   font-weight: 400; }
 
+.btn.btn-cat {
+  margin-right: 0.75rem;
+  margin-bottom: 1rem; }
+  .btn.btn-cat:last-child {
+    margin-right: 0; }
+
 .hero {
   background: #FF7272;
   background: -webkit-linear-gradient(315deg, #FF7272 0%, #5BA9FD 100%);
@@ -8138,11 +8144,7 @@ form .form-group .custom-file label {
     font-weight: 700; }
   .hero .btn.btn-cat {
     border-color: #fff;
-    color: #fff;
-    margin-right: 0.75rem;
-    margin-bottom: 1rem; }
-    .hero .btn.btn-cat:last-child {
-      margin-right: 0; }
+    color: #fff; }
 
 .search {
   padding: 3rem 0; }

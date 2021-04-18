@@ -15,7 +15,7 @@
 	        <p class="cat-title">注目カテゴリ</p>
 	        <div class="d-flex flex-wrap justify-content-center">
 	          @foreach ($pickupCategoies as $cat)
-	          <a class="btn btn-cat" href="">{{ $cat->name }}</a>
+	          <a class="btn btn-cat" href="{{route('jobs.index')}}?category[]={{ $cat->id }}">{{ $cat->name }}</a>
 	          @endforeach
 	        </div>
 	        @endif
@@ -24,7 +24,7 @@
 
 	    <section class="search">
 	      <div class="container">
-	        <form>
+	        <form method="GET" action="{{route('jobs.index')}}">
 	          <p>条件を指定して探す</p>
 					  <div class="form-group row">
 					    <label for="searchKeyword" class="col-sm-2 col-form-label">キーワード</label>
@@ -48,7 +48,7 @@
 	                @foreach ($allCategoies as $cat)
 	                <div class="col-md-3">
 	                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
-	                    <input type="checkbox" class="custom-control-input" id="searchCategory{{ $cat->id }}" name="category[]">
+	                    <input type="checkbox" class="custom-control-input" id="searchCategory{{ $cat->id }}" name="category[]" value="{{ $cat->id }}">
 	                    <label class="custom-control-label" for="searchCategory{{ $cat->id }}">{{ $cat->name }}</label>
 	                  </div>
 	                </div>
