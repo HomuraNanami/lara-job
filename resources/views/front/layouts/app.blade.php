@@ -22,10 +22,24 @@
             <a class="btn btn-primary mr-2" href="{{ route('user.register') }}">新規登録</a>
             <a class="btn btn-outline-secondary" href="{{ route('user.login') }}">ログイン</a>
             @else
-            <a class="btn btn-outline-secondary" href="{{ route('user.logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
-            <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
+            <div class="dropdown dropleft">
+  					  <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  					    @if(!empty(Auth::user()->icon_path))
+  					    <div class="icon" style="background-image:url({{Auth::user()->icon_path}});"></div>
+  					    @else
+  					    <div class="icon" style="background-image:url({{ asset('/assets/front/images/no-image.png') }});"></div>
+  					    @endif
+  					  </a>
+  
+  					  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  					    <a class="dropdown-item" href="profile.html">プロフィール</a>
+  					    <a class="dropdown-item" href="entered-list.html">応募済み求人一覧</a>
+  					    <a class="dropdown-item" href="{{ route('user.logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+                <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+  					  </div>
+  					</div>
             @endif
           </div>
         </div>

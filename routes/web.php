@@ -7,6 +7,8 @@ Route::group(['middleware' => ['auth:user']], function () {
     // TOPページ
     Route::get('home', 'HomeController@show')->name('home');
     Route::get('jobs/{job}', 'Front\JobsController@show')->name('jobs.show');
+    Route::get('jobs/{job}/entry', 'Front\EntryController@show')->name('jobs.entry.show');
+    Route::post('jobs/{job}/entry', 'Front\EntryController@store')->name('jobs.entry.store');
 });
 
 // ユーザー

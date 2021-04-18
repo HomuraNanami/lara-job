@@ -37,7 +37,7 @@
             <div class="form-group row">
               <label for="inputName" class="col-sm-3 col-form-label">名前</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputName" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <input type="text" class="form-control" id="inputName" name="name" value="{{ old('name') }}" required autocomplete="name">
                 @error('name')
                   <div class="alert alert-danger mb-3" role="alert">
                     <strong>{{ $message }}</strong>

@@ -3,6 +3,13 @@
 @section('content')
       <section class="job-detail">
         <div class="container">
+
+		    @if (session('message'))
+      		  <div class="alert {{session('message-class')}} mb-3" role="alert">
+	        	{{session('message')}}
+			  </div>
+			@endif
+
           @if($job)
             <div class="job-header">
 	          <div class="d-flex justify-content-center align-items-center flex-wrap">
@@ -23,21 +30,24 @@
 	          @endif
 	        </div>
 	        <div class="job-body">
-	          <p>{!! nl2br(e($job->content)) !!}</p>
-	          <div class="information">
-	            <h2>基本情報</h2>
-	            <table class="table table-bordered">
-	              <tbody>
-	                <tr>
-	                  <th>給与</th>
-	                  <td>{{ number_format($job->min_salary) }}～{{ number_format($job->max_salary) }}</td>
-	                </tr>
-	              </tbody>
-	            </table>
-	          </div>
-	          <div class="d-flex justify-content-center">
-	            <a class="btn btn-primary mr-2" href="{{route('jobs.entry.show', ['job' => $job->id])}}">応募する</a>
-	          </div>
+	          <h2 class="mb-4">応募フォーム</h2>
+	          <form method="POST" action="{{route('jobs.entry.store', ['job' => $job->id])}}">
+	            @csrf
+	            <div class="form-group row">
+	              <label for="textareaMessage" class="col-sm-3 col-form-label">応募メッセージ</label>
+	              <div class="col-sm-9">
+	                <textarea class="form-control" id="textareaMessage" name="message" rows="10" required autocomplete="message" autofocus>@if(old('message')) {{old('message')}} @else {{$entry->message}} @endif</textarea>
+	                @error('message')
+	                  <div class="alert alert-danger mb-3" role="alert">
+	                    <strong>{{ $message }}</strong>
+	                  </div>
+	                @enderror
+	              </div>
+	            </div>
+	            <div class="d-flex justify-content-center">
+	              <button type="submit" class="btn btn-primary">応募する</button>
+	            </div>
+	          </form>
 	        </div>
 	      @else
 	      	<div class="alert alert-danger mb-3" role="alert">
