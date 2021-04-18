@@ -23,8 +23,10 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
     // ログイン認証後
     Route::group(['middleware' => ['auth:user']], function () {
-        // TOPページ
         Route::get('home', 'HomeController@index')->name('home');
+        Route::get('profile', 'UserInfoController@index')->name('profile');
+        Route::put('profile', 'UserInfoController@update')->name('profile.update');
+        Route::get('entries', 'UserInfoController@entries')->name('entries');
     });
 });
 

@@ -32,8 +32,8 @@
   					  </a>
   
   					  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-  					    <a class="dropdown-item" href="profile.html">プロフィール</a>
-  					    <a class="dropdown-item" href="entered-list.html">応募済み求人一覧</a>
+  					    <a class="dropdown-item" href="{{ route('user.profile') }}">プロフィール</a>
+  					    <a class="dropdown-item" href="{{ route('user.entries') }}">応募済み求人一覧</a>
   					    <a class="dropdown-item" href="{{ route('user.logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
                 <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
                     @csrf
