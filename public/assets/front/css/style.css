@@ -8176,6 +8176,8 @@ form .form-group .custom-file label {
       position: relative;
       background: none;
       border: 0; }
+      .job-list a .card .card-header .category-wrap {
+        min-height: 34px; }
       .job-list a .card .card-header .icon {
         width: 100px;
         height: 100px;

@@ -5,10 +5,12 @@
 	      <div class="container">
 	        <p class="sub-title">求人検索サイト</p>
 	        <p class="title">Lara JOB</p>
+	        @unless (Auth::guard('user')->check())
 	        <div class="d-flex justify-content-center mb-5">
-	          <a class="btn btn-primary mr-2" href="signup.html">新規登録</a>
-	          <a class="btn btn-outline-light" href="login.html">ログイン</a>
+	          <a class="btn btn-primary mr-2" href="{{ route('user.register') }}">新規登録</a>
+	          <a class="btn btn-outline-light" href="{{ route('user.login') }}">ログイン</a>
 	        </div>
+	        @endif
 	        @if (count($pickupCategoies) > 0)
 	        <p class="cat-title">注目カテゴリ</p>
 	        <div class="d-flex flex-wrap justify-content-center">
@@ -70,14 +72,18 @@
 	        <div class="row job-list">
 	          @foreach ($resentJobs as $job)
 	          <div class="col-sm-6 col-md-4 col-lg-3">
+	            @unless (Auth::guard('user')->check())
+	            <a href="#" data-toggle="modal" data-target="#needLoginModal">
+	            @else
 	            <a href="{{route('jobs.show', ['job' => $job->id])}}">
+	            @endif
 	              <div class="card">
 	                <div class="card-header">
-	                  @if (!empty($job->getOneCategory()))
-	                  <div class="d-flex justify-content-end">
+	                  <div class="d-flex justify-content-end category-wrap">
+	                	@if (!empty($job->getOneCategory()))
 	                    <span class="btn btn-cat">{{ $job->getOneCategory()->name }}</span>
+	                	@endif
 	                  </div>
-	                  @endif
 	                  
 	                  @if (!empty($job->icon_path))
 	                  <div class="icon" style="background-image:url({{ $job->icon_path }});"></div>

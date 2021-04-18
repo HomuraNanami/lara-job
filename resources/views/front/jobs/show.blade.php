@@ -3,7 +3,8 @@
 @section('content')
       <section class="job-detail">
         <div class="container">
-          <div class="job-header">
+          @if($job)
+            <div class="job-header">
 	          <div class="d-flex justify-content-center align-items-center flex-wrap">
                 @if (!empty($job->icon_path))
                 <div class="icon" style="background-image:url({{ $job->icon_path }});"></div>
@@ -38,6 +39,11 @@
 	            <a class="btn btn-primary mr-2" href="entry.html">応募する</a>
 	          </div>
 	        </div>
+	      @else
+	      	<div class="alert alert-danger mb-3" role="alert">
+		        求人情報が見つかりませんでした。
+			</div>
+	      @endif
         </div>
       </section>
 @endsection

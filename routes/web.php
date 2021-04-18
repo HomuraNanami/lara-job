@@ -1,10 +1,13 @@
 <?php
 
-Route::get('/', 'Front\TopPageController@show');
-Route::resource('jobs', 'Front\JobsController', ['only' => ['index', 'show']])->names([
-    'index' => 'jobs.index',
-    'show' => 'jobs.show',
-]);
+Route::get('/', 'Front\TopPageController@show')->name('index');
+Route::get('jobs', 'Front\JobsController@index')->name('jobs.index');
+
+Route::group(['middleware' => ['auth:user']], function () {
+    // TOPページ
+    Route::get('home', 'HomeController@show')->name('home');
+    Route::get('jobs/{job}', 'Front\JobsController@show')->name('jobs.show');
+});
 
 // ユーザー
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
@@ -18,10 +21,8 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
     // ログイン認証後
     Route::group(['middleware' => ['auth:user']], function () {
-
         // TOPページ
-        Route::get('home', 'HomeController@show')->name('home');
-
+        Route::get('home', 'HomeController@index')->name('home');
     });
 });
 

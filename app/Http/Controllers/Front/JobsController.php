@@ -24,7 +24,7 @@ class JobsController extends Controller
     public function show($id)
     {
         $data = [];
-        $job = Job::with('categories')->findOrFail($id);
+        $job = Job::with('categories')->find($id);
         $data['job'] = $job;
         return view('front.jobs.show', $data);
     }

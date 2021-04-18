@@ -56,14 +56,18 @@
 	        <div class="row job-list">
 	          @foreach ($jobs as $job)
 	          <div class="col-sm-6 col-md-4 col-lg-3">
+	            @unless (Auth::guard('user')->check())
+	            <a href="#" data-toggle="modal" data-target="#needLoginModal">
+	            @else
 	            <a href="{{route('jobs.show', ['job' => $job->id])}}">
+	            @endif
 	              <div class="card">
 	                <div class="card-header">
-	                  @if (!empty($job->getOneCategory()))
-	                  <div class="d-flex justify-content-end">
+	                  <div class="d-flex justify-content-end category-wrap">
+	                    @if (!empty($job->getOneCategory()))
 	                    <span class="btn btn-cat">{{ $job->getOneCategory()->name }}</span>
+	                    @endif
 	                  </div>
-	                  @endif
 
 	                  @if (!empty($job->icon_path))
 	                  <div class="icon" style="background-image:url({{ $job->icon_path }});"></div>
