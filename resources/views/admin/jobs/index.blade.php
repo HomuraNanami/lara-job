@@ -49,6 +49,8 @@
 	                      <th>
 	                          求人タイトル
 	                      </th>
+	                      <th style="width: 10%">
+	                      </th>
 	                      <th style="width: 30%">
 	                      </th>
 	                  </tr>
@@ -68,6 +70,11 @@
                               {{ $job->title }}
                             </div>
                           </div>
+	                      </td>
+	                      <td>
+	                      	@if(count($job->entries()->where('status',config("const.Entries.STATUS_NEW"))->get()) > 0)
+	                      	  <span class="badge badge-primary">新規応募あり</span>
+	                      	@endif
 	                      </td>
 	                      <td class="project-actions text-right">
 	                          <a class="btn btn-primary btn-sm" href="{{route('admin.jobs.show', ['job' => $job->id])}}">

@@ -28,7 +28,7 @@
 	              <div class="icon">
 	                <i class="fas fa-user"></i>
 	              </div>
-	              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+	              <a href="{{ route('admin.users.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 	            </div>
 	          </div>
             <div class="col-lg-3 col-6">
@@ -42,7 +42,7 @@
                 <div class="icon">
                   <i class="fas fa-newspaper"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.jobs.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <div class="col-lg-3 col-6">
@@ -56,7 +56,7 @@
                 <div class="icon">
                   <i class="far fa-address-card"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.jobs.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
 	        </div>
